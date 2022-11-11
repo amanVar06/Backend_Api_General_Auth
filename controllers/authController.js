@@ -54,7 +54,7 @@ const handleLogin = async (req, res) => {
       //not available to javascript with httpOnly
       //much more secure than storing your refresh token in the local storage or another cookie that is available to javascript
       maxAge: 24 * 60 * 60 * 1000,
-      // secure: true, - only use this with https/ chrome/ production purposes only not while testing with thunder client
+      // secure: true, //- only use this with https/ chrome/ production purposes only not while testing with thunder client
       // dont use for testing purpose in thunder client cookies not working with secure: true in thunder client
       //also check in logoutController.js
     });
