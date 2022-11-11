@@ -25,7 +25,7 @@ app.use(logger);
 app.use(credentials);
 
 //Cross origin resource sharing
-app.use(cors());
+app.use(cors(corsOptions));
 
 //built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
