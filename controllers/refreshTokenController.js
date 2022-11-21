@@ -38,7 +38,7 @@ const handleRefreshToken = async (req, res) => {
       //time in s(seconds), days(d) or hours(h)
     );
 
-    res.json({ accessToken });
+    res.json({ roles, accessToken });
   });
 };
 
