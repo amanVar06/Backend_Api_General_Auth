@@ -16,7 +16,11 @@ const handleLogout = async (req, res) => {
   const foundUser = await User.findOne({ refreshToken }).exec();
   if (!foundUser) {
     //erase the cookie that we have sent
-    res.clearCookie("jwt", { httpOnly: true, sameSite: "None" }); // secure: true, - only use this with https/ chrome/ production purposes only not while testing with thunder client
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+    }); // secure: true, - only use this with https/ chrome/ production purposes only not while testing with thunder client
     return res.sendStatus(204);
   }
 
@@ -25,7 +29,11 @@ const handleLogout = async (req, res) => {
   const result = await foundUser.save();
   console.log(result);
 
-  res.clearCookie("jwt", { httpOnly: true, sameSite: "None" }); // secure: true, - only use this with https/ chrome/ production purposes only not while testing with thunder client
+  res.clearCookie("jwt", {
+    httpOnly: true,
+    sameSite: "None",
+    secure: true,
+  }); // secure: true, - only use this with https/ chrome/ production purposes only not while testing with thunder client
   //we can also sent a maxAge option
   //maxAge: 24*60*60*1000
   res.sendStatus(204);
